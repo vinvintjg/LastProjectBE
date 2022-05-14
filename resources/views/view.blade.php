@@ -26,13 +26,11 @@
                         <div class="text-center">
                             <form action="{{route('search1')}}" method="GET">
                                 <div class="input-group">
-                                    <form class="form-inline" action="">
-                                    <label for="category_filter" class="me-5">Filter By Category</label>
-                                    <select class="form-control me-5" id="category_filter" name="category">
-                                        <option value="">Select Category</option>
-                                    </select>
-                                    <input type="text" class="form-control" name="cari" placeholder="Search" value=""/>
-                                    <button type="submit" class="btn btn-primary">Search</button>
+                                    <form class="form-inline " action="">
+                                        <label for="category_filter" class="me-2">Filter</label>
+                                        <select class="form-control" id="category_filter" name="category"><option value="">Select Category</option></select>
+                                        <input type="text" class="form-control" name="cari" placeholder="Search" value=""/>
+                                        <button type="submit" class="btn btn-primary">Search</button>
                                 </div>
                             </form>
                         <br>
@@ -54,9 +52,9 @@
                                 @foreach ($books as $book)
                                     <tr>
                                     <th scope="row">{{ $book->id }}</th>
-                                    <td>{{ $book->Categroy }}</td>
+                                    <td>{{ $book->Category }}</td>
                                     <td>{{ $book->Name }}</td>
-                                    <td>{{ $book->Price }}</td>
+                                    <td>Rp. {{ $book->Price }}</td>
                                     <td>{{ $book->Quantity }}</td>
                                     <td>
                                         <img src="{{asset('storage/Image/'.$book->Image)}}" alt="Error" style="height: 50px" >

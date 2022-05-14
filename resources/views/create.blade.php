@@ -46,7 +46,6 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="Price" class="form-label">Price of Item</label>
-                                    <label>(Rp)</label>
                                     <input name="Price" type="numeric" class="form-control" id="formGroupExampleInput" placeholder="Input Price of Item">
                                     @error('Price')
                                     <div class="text-danger">
