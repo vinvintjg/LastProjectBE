@@ -27,8 +27,8 @@
                                 @csrf
 
                                 <div class="mb-3">
-                                    <label for="Category" class="form-label">Name Of Item</label>
-                                    <input name="Category" type="text" class="form-control" id="formGroupExampleInput" placeholder="Input Category Of Item">
+                                    <label for="Category" class="form-label">Category of Item</label>
+                                    <input name="Category" type="text" class="form-control" id="formGroupExampleInput" placeholder="Input Category of Item">
                                     @error('Category')
                                     <div class="text-danger">
                                         {{ $message }}
@@ -36,8 +36,8 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label for="Name" class="form-label">Name Of Item</label>
-                                    <input name="Name" type="text" class="form-control" id="formGroupExampleInput" placeholder="Input Name Of Item">
+                                    <label for="Name" class="form-label">Name of Item</label>
+                                    <input name="Name" type="text" class="form-control" id="formGroupExampleInput" placeholder="Input Name of Item">
                                     @error('Name')
                                     <div class="text-danger">
                                         {{ $message }}
@@ -45,8 +45,9 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label for="Price" class="form-label">Price Of Item</label>
-                                    <input name="Price" type="numeric" class="form-control" id="formGroupExampleInput" placeholder="Input Price Of Item">
+                                    <label for="Price" class="form-label">Price of Item</label>
+                                    <label>(Rp)</label>
+                                    <input name="Price" type="numeric" class="form-control" id="formGroupExampleInput" placeholder="Input Price of Item">
                                     @error('Price')
                                     <div class="text-danger">
                                         {{ $message }}
@@ -54,8 +55,8 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label for="Quantity" class="form-label">Quantity Release</label>
-                                    <input name="Quantity" type="numeric" class="form-control" id="formGroupExampleInput" placeholder="Input Quantity Of Item">
+                                    <label for="Quantity" class="form-label">Quantity of Item</label>
+                                    <input name="Quantity" type="numeric" class="form-control" id="formGroupExampleInput" placeholder="Input Quantity of Item">
                                     @error('Quantity')
                                     <div class="text-danger">
                                         {{ $message }}
@@ -64,7 +65,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="Image" class="form-label">Image of Item</label>
-                                    <input name="Image" type="file" class="form-control" id="formGroupExampleInput" placeholder="Input Image Of Item">
+                                    <input name="Image" type="file" class="form-control" id="formGroupExampleInput" placeholder="Input Image of Item">
                                     @error('Image')
                                     <div class="text-danger">
                                         {{ $message }}

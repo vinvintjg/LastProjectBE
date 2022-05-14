@@ -46,6 +46,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="Price" class="form-label">Price Of Item</label>
+                            <label>(Rp)</label>
                             <input name="Price" type="numeric" class="form-control" id="formGroupExampleInput" value="{{$book->Price}}" placeholder="Input Price Of Item">
                             @error('Price')
                             <div class="text-danger">

@@ -14,15 +14,8 @@
 @extends('layouts.layout')
 @section('content')
     <div style="padding-top: 20px"></div>
-    {{-- @if ($datas->count()) --}}
 
-    {{-- <div class="text-center">
-        <form method="GET" action="{{url('books')}}">
-            <input type="text" name="cari" placeholder="Search"/>
-            <button class="" type="submit">Search</button>
-        </form>
-    <br>
-    </div> --}}
+    @if ($books->count() > 0)
 
     <div class="container">
         <div class="row justify-content-center text-center ">
@@ -69,13 +62,13 @@
                                         <img src="{{asset('storage/Image/'.$book->Image)}}" alt="Error" style="height: 50px" >
                                     </td>
                                     <td>
-                                        <a href="{{route('getBookById', ['id'=>$book->id])}}"><button type="submit" class="btn btn-success col-md-9">Edit</button></a>
+                                        <a href="{{route('getBookById', ['id'=>$book->id])}}"><button type="submit" class="btn btn-success col-md">Edit</button></a>
                                     </td>
                                     <td>
                                         <form action="{{route('delete', ['id' => $book->id])}}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="btn btn-danger col-md-4.0">Delete</button>
+                                        <button type="submit" class="btn btn-danger col-md">Delete</button>
                                         </form>
                                     </td>
                                     </tr>
@@ -88,10 +81,49 @@
             </div>
         </div>
     </div>
-    {{-- @else
-    <div class="text-center">
-        <h1>No Item Available</h1>
+
+    @else
+    <div class="container">
+        <div class="row justify-content-center text-center ">
+            <div class="col-md-9">
+            <div class="card shadow">
+                <div class="card-header">{{ __('BOOK LIST') }}</div>
+                    <div class="card-body">
+                        <div class="text-center">
+                            <form action="{{route('search1')}}" method="GET">
+                                <div class="input-group">
+                                    <form class="form-inline" action="">
+                                    <label for="category_filter" class="me-5">Filter By Category</label>
+                                    <select class="form-control me-5" id="category_filter" name="category">
+                                        <option value="">Select Category</option>
+                                    </select>
+                                    <input type="text" class="form-control" name="cari" placeholder="Search" value=""/>
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </div>
+                            </form>
+                        <br>
+                        </div>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Category Of Item</th>
+                                <th scope="col">Name Of Item</th>
+                                <th scope="col">Price Of Item</th>
+                                <th scope="col">Quantity Of Item</th>
+                                <th scope="col">Image Of Item</th>
+                                <th scope="col">Edit Item</th>
+                                <th scope="col">Delete Item</th>
+                            </tr>
+                            </thead>
+                        </table>
+                            <h6>No Item Available</h6>
+                        {{ $books->links() }}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    @endif --}}
+    @endif
 
 @endsection

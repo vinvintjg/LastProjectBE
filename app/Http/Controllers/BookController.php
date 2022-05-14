@@ -63,6 +63,7 @@ class BookController extends Controller
             'Name' => $request->Name,
             'Quantity' => $request->Quantity,
             'Price' => $request->Price,
+            'Image' => $request->Image,
         ]);
 
         return redirect(route('getBooks'));
