@@ -20,21 +20,12 @@
         <div class="col-md-6">
             <div class="card shadow">
                 <div class="card-header text-center">{{ __('UPDATE ITEM') }}</div>
-
                 <div class="card-body">
 
                     <form action="{{route('updateBook', ['id' => $book->id])}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('patch')
-                        {{-- <div class="mb-3">
-                            <label for="Category" class="form-label">Name Of Item</label>
-                            <input name="Category" type="text" class="form-control" id="formGroupExampleInput" value="{{$book->Category}}" placeholder="Input Category Of Item">
-                            @error('Category')
-                            <div class="text-danger">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div> --}}
+
                         <div class="mb-3">
                             <label for="Name" class="form-label">Name Of Item</label>
                             <input name="Name" type="text" class="form-control" id="formGroupExampleInput" value="{{$book->Name}}" placeholder="Input Name Of Item">
@@ -46,7 +37,6 @@
                         </div>
                         <div class="mb-3">
                             <label for="Price" class="form-label">Price Of Item</label>
-                            <label>(Rp)</label>
                             <input name="Price" type="numeric" class="form-control" id="formGroupExampleInput" value="{{$book->Price}}" placeholder="Input Price Of Item">
                             @error('Price')
                             <div class="text-danger">
@@ -63,14 +53,51 @@
                             </div>
                             @enderror
                         </div>
+                        <div>
+                            <img src="{{asset('storage/Image/'.$book->Image)}}" alt="error" style="height: 100px" >
+                        </div>
                         <div class="mb-3">
-                            <label for="Image" class="form-label">Iamge Item</label>
+                            <label for="Image" class="form-label">Image of Item</label>
                             <input name="Image" type="file" class="form-control" id="formGroupExampleInput" value="{{$book->Image}}" placeholder="Input Image Of Item">
                             @error('Image')
                             <div class="text-danger">
                                 {{ $message }}
                             </div>
                             @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="Category" class="form-label">Category of Item</label>
+                                <div class="" style="">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1" name="category[]">
+                                        <label class="form-check-label" for="inlineCheckbox1">Books</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="2" name="category[]">
+                                        <label class="form-check-label" for="inlineCheckbox2">Clothing</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="3" name="category[]">
+                                        <label class="form-check-label" for="inlineCheckbox3">Electronics</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="4" name="category[]">
+                                        <label class="form-check-label" for="inlineCheckbox3">Food</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="5" name="category[]">
+                                        <label class="form-check-label" for="inlineCheckbox3">Furniture</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="6" name="category[]">
+                                        <label class="form-check-label" for="inlineCheckbox3">Others</label>
+                                      </div>
+                                    @error('category')
+                                    <div class="text-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                                </div>
                         </div>
                         <button type="submit" class="btn btn-success">Update</button>
                     </form>

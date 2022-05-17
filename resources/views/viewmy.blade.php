@@ -3,7 +3,7 @@
         <div style="padding-top: 20px"></div>
         <div class="container">
             <div class="row justify-content-center text-center ">
-                <div class="col-md-9">
+                <div class="col-md-8">
                 <div class="card shadow">
                     <div class="card-header">{{ __('BOOK LIST') }}</div>
                         <div class="card-body">
@@ -25,7 +25,6 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">No</th>
-                                    {{-- <th scope="col">Category Of Item</th> --}}
                                     <th scope="col">Name Of Item</th>
                                     <th scope="col">Price Of Item</th>
                                     <th scope="col">Quantity Of Item</th>

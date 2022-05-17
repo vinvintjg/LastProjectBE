@@ -20,21 +20,9 @@
                 <div class="card shadow">
                     <div class="card-header text-center">{{ __('INPUT NEW ITEM') }} </div>
                         <div class="card-body">
-                        {{-- <form method="POST" action="{{ route('register') }}"> --}}
-                            {{-- @csrf --}}
                             <form action="{{ route('createBook') }}" method="POST" enctype="multipart/form-data">
 
                                 @csrf
-
-                                {{-- <div class="mb-3">
-                                    <label for="Category" class="form-label">Category of Item</label>
-                                    <input name="Category" type="text" class="form-control" id="formGroupExampleInput" placeholder="Input Category of Item">
-                                    @error('Category')
-                                    <div class="text-danger">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div> --}}
                                 <div class="mb-3">
                                     <label for="Name" class="form-label">Name of Item</label>
                                     <input name="Name" type="text" class="form-control" id="formGroupExampleInput" placeholder="Input Name of Item">
@@ -71,6 +59,40 @@
                                     </div>
                                     @enderror
                                   </div>
+                                  <div class="mb-3">
+                                    <label for="Category" class="form-label">Category of Item</label>
+                                    <div class="" style="">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1" name="category[]">
+                                            <label class="form-check-label" for="inlineCheckbox1">Books</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="2" name="category[]">
+                                            <label class="form-check-label" for="inlineCheckbox2">Clothing</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="3" name="category[]">
+                                            <label class="form-check-label" for="inlineCheckbox3">Electronics</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="4" name="category[]">
+                                            <label class="form-check-label" for="inlineCheckbox3">Food</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="5" name="category[]">
+                                            <label class="form-check-label" for="inlineCheckbox3">Furniture</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="6" name="category[]">
+                                            <label class="form-check-label" for="inlineCheckbox3">Others</label>
+                                          </div>
+                                        @error('category')
+                                        <div class="text-danger">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                    </div>
+                                </div>
                                 <button type="submit" class="btn btn-success">Insert</button>
                             </form>
                         </div>

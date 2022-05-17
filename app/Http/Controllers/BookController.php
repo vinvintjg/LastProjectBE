@@ -6,6 +6,7 @@ use App\Http\Requests\BookRequest;
 use App\Models\Book;
 use App\Models\Genre;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -21,25 +22,23 @@ class BookController extends Controller
     public function createBook(BookRequest $request){
 
         $extension = $request->file('Image')->getClientOriginalExtension();
-        $fileName = $request->Category.'_'.$request->Name.'.'.$extension;//rename image
+        $fileName = $request->Name.'.'.$extension;//rename image
         $request->file('Image')->storeAs('public/Image/', $fileName);//save image
 
-        Book::create([
-            'Category' => $request->Category,
+        $book = Book::create([
             'Name' => $request->Name,
             'Price' => $request->Price,
             'Quantity' => $request->Quantity,
             'Image'=> $fileName,
-            // 'genreId' => $request->genreId,
-            'user_id' => Auth::user()->id
+            'user_id' => Auth::user()->id,
         ]);
+        $book->category()->attach($request->category);
 
         return redirect(route('getBooks'));
     }
 
     public function searchBook(Request $request){
         $cari = $request->cari;
-        // $books = Book::where('Category', 'like', '%'.$cari.'%')
         $books = Book::where('Name', 'like', '%'.$cari.'%')
             ->orWhere('Price', 'like', '%'.$cari.'%')
             ->orWhere('Quantity', 'like', '%'.$cari.'%')
@@ -63,7 +62,6 @@ class BookController extends Controller
         $book = Book::find($id);
 
         $book -> update([
-            // 'Category' => $request->Category,
             'Name' => $request->Name,
             'Quantity' => $request->Quantity,
             'Price' => $request->Price,
@@ -80,7 +78,7 @@ class BookController extends Controller
 
     public function ViewMyBooks(){
         $books = Book::paginate(5);
-        return view('viewmy', ['books' => $books]);
+        return view('view', ['books' => $books]);
     }
 
 }

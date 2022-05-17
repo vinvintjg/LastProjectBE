@@ -19,16 +19,16 @@
 
     <div class="container">
         <div class="row justify-content-center text-center ">
-            <div class="col-md-9">
+            <div class="col-md-8">
             <div class="card shadow">
                 <div class="card-header">{{ __('BOOK LIST') }}</div>
                     <div class="card-body">
                         <div class="text-center">
                             <form action="{{route('search1')}}" method="GET">
                                 <div class="input-group">
-                                    <form class="form-inline " action="">
-                                        <label for="category_filter" class="me-2">Filter</label>
-                                        <select class="form-control" id="category_filter" name="category"><option value="">Select Category</option></select>
+                                    <form class="form-inline" action="">
+                                        <label for="category_filter" class="">Filter</label>
+                                        <select class="form-control me-5" id="category_filter" name="category"><option value="">Select Category</option></select>
                                         <input type="text" class="form-control" name="cari" placeholder="Search" value=""/>
                                         <button type="submit" class="btn btn-primary">Search</button>
                                 </div>
@@ -39,11 +39,11 @@
                             <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                {{-- <th scope="col">Category Of Item</th> --}}
-                                <th scope="col">Name Of Item</th>
-                                <th scope="col">Price Of Item</th>
-                                <th scope="col">Quantity Of Item</th>
-                                <th scope="col">Image Of Item</th>
+                                <th scope="col">Name of Item</th>
+                                <th scope="col">Price of Item</th>
+                                <th scope="col">Quantity of Item</th>
+                                <th scope="col">Image of Item</th>
+                                <th scope="col">Category of Item</th>
                                 <th scope="col">Edit Item</th>
                                 <th scope="col">Delete Item</th>
                             </tr>
@@ -52,12 +52,20 @@
                                 @foreach ($books as $book)
                                     <tr>
                                     <th scope="row">{{ $book->id }}</th>
-                                    {{-- <td>{{ $book->Category }}</td> --}}
                                     <td>{{ $book->Name }}</td>
                                     <td>Rp. {{ $book->Price }}</td>
                                     <td>{{ $book->Quantity }}</td>
                                     <td>
                                         <img src="{{asset('storage/Image/'.$book->Image)}}" alt="error" style="height: 50px" >
+                                    </td>
+                                    <td>
+                                        @foreach ($book->category as $category)
+                                          @if ($loop->last)
+                                              {{$category->category_name}}
+                                          @else
+                                              {{$category->category_name}},
+                                          @endif
+                                        @endforeach
                                     </td>
                                     <td>
                                         <a href="{{route('getBookById', ['id'=>$book->id])}}"><button type="submit" class="btn btn-success col-md">Edit</button></a>
@@ -105,11 +113,11 @@
                             <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                {{-- <th scope="col">Category Of Item</th> --}}
-                                <th scope="col">Name Of Item</th>
-                                <th scope="col">Price Of Item</th>
-                                <th scope="col">Quantity Of Item</th>
-                                <th scope="col">Image Of Item</th>
+                                <th scope="col">Name of Item</th>
+                                <th scope="col">Price of Item</th>
+                                <th scope="col">Quantity of Item</th>
+                                <th scope="col">Image of Item</th>
+                                <th scope="col">Category of Item</th>
                                 <th scope="col">Edit Item</th>
                                 <th scope="col">Delete Item</th>
                             </tr>

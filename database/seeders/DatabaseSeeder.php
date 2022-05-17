@@ -1,7 +1,6 @@
 <?php
 
-namespace Database\Seeders;
-
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,7 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $array = ['Action', 'Comedy', 'Romance', 'Horror'];
+        $array = ['Books', 'Clothing', 'Electronics', 'Food', 'Furniture', 'Others'];
 
         foreach ($array as $category) {
             Category::create([
@@ -23,6 +22,5 @@ class DatabaseSeeder extends Seeder
 
         // $this->call(AdminSeeder::class);
         // $this->call(BookSeeder::class);
-
     }
 }

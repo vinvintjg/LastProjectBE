@@ -10,7 +10,6 @@ class Book extends Model
     use HasFactory;
 
     protected $fillable = [
-        // 'Category',
         'Name', 'Price', 'Quantity', 'Image', 'user_id'
     ];
 
@@ -22,9 +21,7 @@ class Book extends Model
     public function category(){
         return $this->belongsToMany(Category::class);
     }
-    // public function genre(){
-    //     return $this->belongsTo(Genre::class, 'genreId');
-    // }
+   
 }
 
 
