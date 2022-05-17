@@ -56,7 +56,7 @@
                                     <td>Rp. {{ $book->Price }}</td>
                                     <td>{{ $book->Quantity }}</td>
                                     <td>
-                                        <img src="{{asset('storage/Image/'.$book->Image)}}" alt="error" style="height: 50px" >
+                                        <img src="{{('/storage/').$book->image}}" class="card-img-top" alt="...">
                                     </td>
                                     <td>
                                         @foreach ($book->category as $category)

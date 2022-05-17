@@ -22,7 +22,7 @@ class BookController extends Controller
     public function createBook(BookRequest $request){
 
         // $extension = $request->file('Image')->getClientOriginalExtension();
-        // $fileName = $request->Name.'.'.$extension;//rename image
+        // $fileName = $request->Name.'_'.$request->Price.'.'.$extension;//rename image
         // $request->file('Image')->storeAs('public/Image/', $fileName);//save image
 
         $path = $request->file('image')->store('public/images');
@@ -33,8 +33,8 @@ class BookController extends Controller
             'Price' => $request->Price,
             'Quantity' => $request->Quantity,
             // 'Image'=> $fileName,
-            'image' => $path,
             'user_id' => Auth::user()->id,
+            'image' => $path,
         ]);
         $book->category()->attach($request->category);
 

@@ -29,7 +29,7 @@ class BookRequest extends FormRequest
             'Quantity' => 'required|numeric|min:0',
             // 'Image' => 'required',
             'category' => 'required|max:1',
-            'image' => 'required|mimes:png,jpg,jpeg|max:1000'
+            'image' => 'required|mimes:png,jpg,jpeg'
         ];
     }
 }
