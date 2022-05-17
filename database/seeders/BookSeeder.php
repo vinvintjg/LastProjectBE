@@ -14,14 +14,6 @@ class BookSeeder extends Seeder
      */
     public function run()
     {
-        $book = factory(Book::class, 10)->create();
-        // DB::table('books')->insert([
-        //     'Category' => 'Makanan',
-        //     'Name' => 'Barang',
-        //     'Price' => 10000,
-        //     'Quantity' => 10,
-        //     'Image'=> '',
-        //     'genreId' => '1'
-        // ]);
+        // $book = factory(Book::class, 10)->create();
     }
 }

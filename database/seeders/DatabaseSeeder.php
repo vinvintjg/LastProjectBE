@@ -21,13 +21,8 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        $this->call(AdminSeeder::class);
-        $this->call(BookSeeder::class);
-        
-        // $this->call([
-        //     GenreSeeder::class,
-        //     BookSeeder::class,
-        // ]);
+        // $this->call(AdminSeeder::class);
+        // $this->call(BookSeeder::class);
 
     }
 }
