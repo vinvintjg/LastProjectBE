@@ -21,15 +21,19 @@ class BookController extends Controller
 
     public function createBook(BookRequest $request){
 
-        $extension = $request->file('Image')->getClientOriginalExtension();
-        $fileName = $request->Name.'.'.$extension;//rename image
-        $request->file('Image')->storeAs('public/Image/', $fileName);//save image
+        // $extension = $request->file('Image')->getClientOriginalExtension();
+        // $fileName = $request->Name.'.'.$extension;//rename image
+        // $request->file('Image')->storeAs('public/Image/', $fileName);//save image
+
+        $path = $request->file('image')->store('public/images');
+        $path = substr($path, strlen('public/'));
 
         $book = Book::create([
             'Name' => $request->Name,
             'Price' => $request->Price,
             'Quantity' => $request->Quantity,
-            'Image'=> $fileName,
+            // 'Image'=> $fileName,
+            'image' => $path,
             'user_id' => Auth::user()->id,
         ]);
         $book->category()->attach($request->category);

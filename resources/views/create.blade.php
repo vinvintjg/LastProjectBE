@@ -51,9 +51,9 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label for="Image" class="form-label">Image of Item</label>
-                                    <input name="Image" type="file" class="form-control" id="formGroupExampleInput" placeholder="Input Image of Item">
-                                    @error('Image')
+                                    <label for="image" class="form-label">Image of Item</label>
+                                    <input name="image" type="file" class="form-control" id="formGroupExampleInput" placeholder="Input Image of Item">
+                                    @error('image')
                                     <div class="text-danger">
                                         {{ $message }}
                                     </div>
@@ -100,5 +100,6 @@
             </div>
         </div>
     </div>
+
 @endsection
 
