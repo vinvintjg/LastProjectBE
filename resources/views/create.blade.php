@@ -26,7 +26,7 @@
 
                                 @csrf
 
-                                <div class="mb-3">
+                                {{-- <div class="mb-3">
                                     <label for="Category" class="form-label">Category of Item</label>
                                     <input name="Category" type="text" class="form-control" id="formGroupExampleInput" placeholder="Input Category of Item">
                                     @error('Category')
@@ -34,7 +34,7 @@
                                         {{ $message }}
                                     </div>
                                     @enderror
-                                </div>
+                                </div> --}}
                                 <div class="mb-3">
                                     <label for="Name" class="form-label">Name of Item</label>
                                     <input name="Name" type="text" class="form-control" id="formGroupExampleInput" placeholder="Input Name of Item">

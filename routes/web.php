@@ -26,6 +26,8 @@ Route::post('/create-book', [BookController::class, 'createBook'])->name('create
 
 Route::get('/get-books', [BookController::class, 'getBooks'])->name('getBooks');
 
+Route::get('/get-my-books', [BookController::class, 'ViewMyBooks'])->name('ViewMyBooks');
+
 Route::get('/update-book/{id}', [BookController::class, 'getBookById'])->name('getBookById');
 
 Route::patch('/update-book/{id}', [BookController::class, 'updateBook'])->name('updateBook');
@@ -41,5 +43,5 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => IsAdminMiddleware::class], function(){
-    // Route::get('/get-books', [BookController::class, 'getBooks'])->name('getBooks');
+
 });

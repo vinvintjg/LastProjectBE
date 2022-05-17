@@ -26,7 +26,7 @@
                     <form action="{{route('updateBook', ['id' => $book->id])}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('patch')
-                        <div class="mb-3">
+                        {{-- <div class="mb-3">
                             <label for="Category" class="form-label">Name Of Item</label>
                             <input name="Category" type="text" class="form-control" id="formGroupExampleInput" value="{{$book->Category}}" placeholder="Input Category Of Item">
                             @error('Category')
@@ -34,7 +34,7 @@
                                 {{ $message }}
                             </div>
                             @enderror
-                        </div>
+                        </div> --}}
                         <div class="mb-3">
                             <label for="Name" class="form-label">Name Of Item</label>
                             <input name="Name" type="text" class="form-control" id="formGroupExampleInput" value="{{$book->Name}}" placeholder="Input Name Of Item">

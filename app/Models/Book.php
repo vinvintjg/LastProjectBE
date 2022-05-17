@@ -10,12 +10,22 @@ class Book extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Category', 'Name', 'Price', 'Quantity', 'Image',
+        // 'Category',
+        'Name', 'Price', 'Quantity', 'Image', 'user_id'
     ];
 
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function category(){
+        return $this->belongsToMany(Category::class);
+    }
     // public function genre(){
-    //     return $this->hasMany(Comment::class);
+    //     return $this->belongsTo(Genre::class, 'genreId');
     // }
 }
+
 
 

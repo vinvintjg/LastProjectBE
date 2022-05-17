@@ -13,9 +13,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            GenreSeeder::class,
-            BookSeeder::class,
-        ]);
+        $array = ['Action', 'Comedy', 'Romance', 'Horror'];
+
+        foreach ($array as $category) {
+            Category::create([
+                'category_name' => $category
+            ]);
+        }
+
+        $this->call(AdminSeeder::class);
+        $this->call(BookSeeder::class);
+        
+        // $this->call([
+        //     GenreSeeder::class,
+        //     BookSeeder::class,
+        // ]);
+
     }
 }

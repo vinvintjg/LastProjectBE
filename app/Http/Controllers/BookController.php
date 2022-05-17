@@ -7,6 +7,7 @@ use App\Models\Book;
 use App\Models\Genre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
@@ -27,7 +28,9 @@ class BookController extends Controller
             'Name' => $request->Name,
             'Price' => $request->Price,
             'Quantity' => $request->Quantity,
-            'Image'=> $fileName
+            'Image'=> $fileName,
+            // 'genreId' => $request->genreId,
+            'user_id' => Auth::user()->id
         ]);
 
         return redirect(route('getBooks'));
@@ -35,8 +38,8 @@ class BookController extends Controller
 
     public function searchBook(Request $request){
         $cari = $request->cari;
-        $books = Book::where('Category', 'like', '%'.$cari.'%')
-            ->orWhere('Name', 'like', '%'.$cari.'%')
+        // $books = Book::where('Category', 'like', '%'.$cari.'%')
+        $books = Book::where('Name', 'like', '%'.$cari.'%')
             ->orWhere('Price', 'like', '%'.$cari.'%')
             ->orWhere('Quantity', 'like', '%'.$cari.'%')
             ->paginate(5);
@@ -59,7 +62,7 @@ class BookController extends Controller
         $book = Book::find($id);
 
         $book -> update([
-            'Category' => $request->Category,
+            // 'Category' => $request->Category,
             'Name' => $request->Name,
             'Quantity' => $request->Quantity,
             'Price' => $request->Price,
@@ -72,6 +75,11 @@ class BookController extends Controller
     public function deleteBook($id){
         Book::destroy($id);
         return redirect(route('getBooks'));
+    }
+
+    public function ViewMyBooks(){
+        $books = Book::paginate(5);
+        return view('viewmy', ['books' => $books]);
     }
 
 }

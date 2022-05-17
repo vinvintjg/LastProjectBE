@@ -39,7 +39,7 @@
                             <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Category Of Item</th>
+                                {{-- <th scope="col">Category Of Item</th> --}}
                                 <th scope="col">Name Of Item</th>
                                 <th scope="col">Price Of Item</th>
                                 <th scope="col">Quantity Of Item</th>
@@ -52,12 +52,12 @@
                                 @foreach ($books as $book)
                                     <tr>
                                     <th scope="row">{{ $book->id }}</th>
-                                    <td>{{ $book->Category }}</td>
+                                    {{-- <td>{{ $book->Category }}</td> --}}
                                     <td>{{ $book->Name }}</td>
                                     <td>Rp. {{ $book->Price }}</td>
                                     <td>{{ $book->Quantity }}</td>
                                     <td>
-                                        <img src="{{asset('storage/Image/'.$book->Image)}}" alt="Error" style="height: 50px" >
+                                        <img src="{{asset('storage/Image/'.$book->Image)}}" alt="error" style="height: 50px" >
                                     </td>
                                     <td>
                                         <a href="{{route('getBookById', ['id'=>$book->id])}}"><button type="submit" class="btn btn-success col-md">Edit</button></a>
@@ -105,7 +105,7 @@
                             <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Category Of Item</th>
+                                {{-- <th scope="col">Category Of Item</th> --}}
                                 <th scope="col">Name Of Item</th>
                                 <th scope="col">Price Of Item</th>
                                 <th scope="col">Quantity Of Item</th>

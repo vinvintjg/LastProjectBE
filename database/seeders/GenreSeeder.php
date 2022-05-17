@@ -14,11 +14,11 @@ class GenreSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('genres')->insert([
-            'name' => 'Action',
-        ]);
-        DB::table('genres')->insert([
-            'name' => 'fiction',
-        ]);
+        // DB::table('genres')->insert([
+        //     'name' => 'Action',
+        // ]);
+        // DB::table('genres')->insert([
+        //     'name' => 'fiction',
+        // ]);
     }
 }

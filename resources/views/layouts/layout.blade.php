@@ -31,6 +31,9 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{{ route('getBooks')}}">VIEW</a>
               </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link active" aria-current="page" href="{{ route('ViewMyBooks')}}">MY DATA</a>
+              </li>
             </ul>
 
             {{-- <form class="d-flex">

@@ -14,14 +14,14 @@ class BookSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('books')->insert([
-            'NamaPembeli' => 'Potter',
-            'Barang' => 'Penghapus',
-            'Jumlah' => 1,
-            'Harga' => 10000,
-            'Tanggal' => '2001-01-10',
-            'Jam' => '12:55',
-            'genreId' => '1'
-        ]);
+        $book = factory(Book::class, 10)->create();
+        // DB::table('books')->insert([
+        //     'Category' => 'Makanan',
+        //     'Name' => 'Barang',
+        //     'Price' => 10000,
+        //     'Quantity' => 10,
+        //     'Image'=> '',
+        //     'genreId' => '1'
+        // ]);
     }
 }
