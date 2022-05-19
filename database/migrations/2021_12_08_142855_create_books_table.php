@@ -19,7 +19,7 @@ class CreateBooksTable extends Migration
             $table->string('Name')->nullable();
             $table->integer('Price')->nullable();
             $table->integer('Quantity')->nullable();
-            $table->string('image');
+            $table->string('Image');
             $table->integer("user_id")->unsigned();
 
             $table->foreign('user_id')->references('id')->on('users')

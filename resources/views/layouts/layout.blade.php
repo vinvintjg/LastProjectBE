@@ -25,13 +25,15 @@
               <li class="nav-item me-2">
                 <a class="nav-link active" aria-current="page" href="{{ route('home')}}">HOME</a>
               </li>
+              @if (Auth::user()->role == 'admin')
               <li class="nav-item me-2">
                 <a class="nav-link active" aria-current="page" href="{{ route('getCreatePage')}}">INPUT</a>
               </li>
-              <li class="nav-item">
+              @endif
+              <li class="nav-item me-2">
                 <a class="nav-link active" aria-current="page" href="{{ route('getBooks')}}">VIEW</a>
               </li>
-              <li class="nav-item dropdown">
+              <li class="nav-item me-2">
                 <a class="nav-link active" aria-current="page" href="{{ route('ViewMyBooks')}}">MY DATA</a>
               </li>
             </ul>

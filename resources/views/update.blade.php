@@ -25,10 +25,14 @@
                     <form action="{{route('updateBook', ['id' => $book->id])}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('patch')
-
                         <div class="mb-3">
-                            <label for="Name" class="form-label">Name Of Item</label>
-                            <input name="Name" type="text" class="form-control" id="formGroupExampleInput" value="{{$book->Name}}" placeholder="Input Name Of Item">
+                            <div class="text-center">
+                                <img src="{{asset('storage/Image/'.$book->Image)}}" alt="error" class="mb-3" style="height: 300px" >
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Name" class="form-label">Name of Item</label>
+                            <input name="Name" type="text" class="form-control" id="formGroupExampleInput" value="{{$book->Name}}" placeholder="Input Name of Item">
                             @error('Name')
                             <div class="text-danger">
                                 {{ $message }}
@@ -36,8 +40,8 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="Price" class="form-label">Price Of Item</label>
-                            <input name="Price" type="numeric" class="form-control" id="formGroupExampleInput" value="{{$book->Price}}" placeholder="Input Price Of Item">
+                            <label for="Price" class="form-label">Price of Item</label>
+                            <input name="Price" type="numeric" class="form-control" id="formGroupExampleInput" value="{{$book->Price}}" placeholder="Input Price of Item">
                             @error('Price')
                             <div class="text-danger">
                                 {{ $message }}
@@ -46,19 +50,16 @@
                         </div>
                         <div class="mb-3">
                             <label for="Quantity" class="form-label">Quantity Release</label>
-                            <input name="Quantity" type="numeric" class="form-control" id="formGroupExampleInput" value="{{$book->Quantity}}" placeholder="Input Quantity Of Item">
+                            <input name="Quantity" type="numeric" class="form-control" id="formGroupExampleInput" value="{{$book->Quantity}}" placeholder="Input Quantity of Item">
                             @error('Quantity')
                             <div class="text-danger">
                                 {{ $message }}
                             </div>
                             @enderror
                         </div>
-                        <div>
-                            <img src="{{asset('storage/Image/'.$book->Image)}}" alt="error" style="height: 100px" >
-                        </div>
                         <div class="mb-3">
                             <label for="Image" class="form-label">Image of Item</label>
-                            <input name="Image" type="file" class="form-control" id="formGroupExampleInput" value="{{$book->Image}}" placeholder="Input Image Of Item">
+                            <input name="Image" type="file" class="form-control" id="formGroupExampleInput" value="{{$book->Image}}" placeholder="Input Image of Item">
                             @error('Image')
                             <div class="text-danger">
                                 {{ $message }}
@@ -106,5 +107,5 @@
         </div>
     </div>
 </div>
-
+<br>
 @endsection

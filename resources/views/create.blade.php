@@ -51,9 +51,9 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label for="image" class="form-label">Image of Item</label>
-                                    <input name="image" type="file" class="form-control" id="formGroupExampleInput" placeholder="Input Image of Item">
-                                    @error('image')
+                                    <label for="Image" class="form-label">Image of Book</label>
+                                    <input name="Image" type="file" class="form-control" id="formGroupExampleInput" placeholder="Input Image Of Book">
+                                    @error('Image')
                                     <div class="text-danger">
                                         {{ $message }}
                                     </div>
