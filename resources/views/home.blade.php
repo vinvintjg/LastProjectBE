@@ -7,7 +7,7 @@
     <div class="row justify-content-center text-center">
         <div class="col-md-6">
             <div class="card shadow">
-                <div class="card-header">{{ __('DASHBOARD') }}</div>
+                <div class="card-header">{{ __('HOME') }}</div>
 
                 <div class="card-body">
                     {{-- @if (session('status'))
@@ -16,7 +16,11 @@
                         </div>
                     @endif --}}
                     {{ __('You are logged in!') }}
+                        @if (Auth::user()->role == 'admin')
                         <a href="{{ route('getBooks')}}">Click Here</a>
+                        @else
+                        <a href="{{ route('ViewMyBooks')}}">Click Here</a>
+                        @endif
                 </div>
             </div>
         </div>

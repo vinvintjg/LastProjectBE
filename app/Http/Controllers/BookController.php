@@ -52,6 +52,17 @@ class BookController extends Controller
         return view('view', compact('books', 'request'));
     }
 
+    public function searchBook2(Request $request){
+        $cari = $request->cari;
+        $books = Book::where('Name', 'like', '%'.$cari.'%')
+            ->orWhere('Price', 'like', '%'.$cari.'%')
+            ->orWhere('Quantity', 'like', '%'.$cari.'%')
+            ->paginate(5);
+        $books->withPath('');
+        $books->appends($request->all());
+        return view('viewmy', compact('books', 'request'));
+    }
+
     public function getBooks(){
         $books = Book::paginate(5);
         return view('view', ['books' => $books]);
@@ -82,7 +93,7 @@ class BookController extends Controller
 
     public function ViewMyBooks(){
         $books = Book::paginate(5);
-        return view('view', ['books' => $books]);
+        return view('viewmy', ['books' => $books]);
     }
 
 }

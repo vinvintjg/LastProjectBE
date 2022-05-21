@@ -19,11 +19,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group(['middleware' => IsAdminMiddleware::class], function(){});
+// Route::group(['middleware' => IsAdminMiddleware::class], function(){});
 
+Auth::routes();
+
+Route::get('/', [LoginController::class, 'logout'])->name('logout');
+
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::middleware('admin')->group(function(){
     Route::get('/create', [BookController::class, 'getCreatePage'])->name('getCreatePage');
 
     Route::post('/create-book', [BookController::class, 'createBook'])->name('createBook');
+
+    Route::get('/get-books', [BookController::class, 'getBooks'])->name('getBooks');
 
     Route::get('/update-book/{id}', [BookController::class, 'getBookById'])->name('getBookById');
 
@@ -31,16 +40,13 @@ Route::group(['middleware' => IsAdminMiddleware::class], function(){});
 
     Route::delete('/delete-book/{id}', [BookController::class, 'deleteBook'])->name('delete');
 
-Route::get('/', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/s', [BookController::class, 'searchBook'])->name('search1');
+});
 
-Route::get('/s', [BookController::class, 'searchBook'])->name('search1');
+Route::middleware('auth')->group(function(){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/get-my-books', [BookController::class, 'ViewMyBooks'])->name('ViewMyBooks');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/get-books', [BookController::class, 'getBooks'])->name('getBooks');
-
-Route::get('/get-my-books', [BookController::class, 'ViewMyBooks'])->name('ViewMyBooks');
-
-Auth::routes();
+    Route::get('/ss', [BookController::class, 'searchBook2'])->name('search2');
+});

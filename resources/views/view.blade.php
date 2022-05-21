@@ -21,7 +21,7 @@
         <div class="row justify-content-center text-center ">
             <div class="col-md-8">
             <div class="card shadow">
-                <div class="card-header">{{ __('BOOK LIST') }}</div>
+                <div class="card-header">{{ __('LIST ITEM') }}</div>
                     <div class="card-body">
                         <div class="text-center">
                             <form action="{{route('search1')}}" method="GET">
@@ -39,13 +39,14 @@
                             <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Name of Item</th>
-                                <th scope="col">Price of Item</th>
-                                <th scope="col">Quantity of Item</th>
-                                <th scope="col">Image of Item</th>
-                                <th scope="col">Category of Item</th>
-                                <th scope="col">Edit Item</th>
-                                <th scope="col">Delete Item</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                                <th scope="col">Invoice</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -78,6 +79,12 @@
                                         <button type="submit" class="btn btn-danger col-md">Delete</button>
                                         </form>
                                     </td>
+                                    <td>
+                                        <a href="">
+                                        <button type="submit" class="btn btn-primary">Detail</button>
+                                        </a>
+                                    </td>
+
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -114,13 +121,14 @@
                             <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Name of Item</th>
-                                <th scope="col">Price of Item</th>
-                                <th scope="col">Quantity of Item</th>
-                                <th scope="col">Image of Item</th>
-                                <th scope="col">Category of Item</th>
-                                <th scope="col">Edit Item</th>
-                                <th scope="col">Delete Item</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                                <th scope="col">Invoice</th>
                             </tr>
                             </thead>
                         </table>

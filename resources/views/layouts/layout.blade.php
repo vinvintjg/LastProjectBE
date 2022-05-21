@@ -29,13 +29,14 @@
               <li class="nav-item me-2">
                 <a class="nav-link active" aria-current="page" href="{{ route('getCreatePage')}}">INPUT</a>
               </li>
+              <li class="nav-item me-2">
+                <a class="nav-link active" aria-current="page" href="{{ route('getBooks')}}">VIEW DATA</a>
+              </li>
+              @else
+              <li class="nav-item me-2">
+                <a class="nav-link active" aria-current="page" href="{{ route('ViewMyBooks')}}">VIEW DATA</a>
+              </li>
               @endif
-              <li class="nav-item me-2">
-                <a class="nav-link active" aria-current="page" href="{{ route('getBooks')}}">VIEW</a>
-              </li>
-              <li class="nav-item me-2">
-                <a class="nav-link active" aria-current="page" href="{{ route('ViewMyBooks')}}">MY DATA</a>
-              </li>
             </ul>
 
             {{-- <form class="d-flex">

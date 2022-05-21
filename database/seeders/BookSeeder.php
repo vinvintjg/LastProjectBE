@@ -1,6 +1,6 @@
 <?php
 
-// namespace Database\Seeders;
+namespace Database\Seeders;
 use App\Models\Book;
 use Illuminate\Database\Seeder;
 
@@ -13,6 +13,7 @@ class BookSeeder extends Seeder
      */
     public function run()
     {
-        $book = factory(Book::class, 10)->create();
+        // $book = factory(Book::class, 10)->create();
+        \App\Models\Book::factory()->count(15)->create();
     }
 }

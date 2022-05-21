@@ -10,7 +10,7 @@ class Book extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Name', 'Price', 'Quantity', 'user_id', 'Image'
+        'Name', 'Price', 'Quantity', 'user_id', 'Image', 'Category'
     ];
 
 
