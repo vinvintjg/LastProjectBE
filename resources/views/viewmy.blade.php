@@ -41,10 +41,11 @@
                                     <th scope="col">No</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Price</th>
-                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Stock</th>
                                     <th scope="col">Image</th>
                                     <th scope="col">Category</th>
-                                    <th scope="col">Invoice</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Cart</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -68,9 +69,14 @@
                                             @endforeach
                                         </td>
                                         <td>
-                                            <a href="">
-                                            <button type="submit" class="btn btn-primary">Detail</button>
-                                            </a>
+                                            <div class="input-group float-end me-4" style="width:120px;">
+                                                <button class=" input-group-text decrement-btn ">-</button>
+                                                <input type="text" name="Quantity1" class="form-control qty-input text-center" value="1" >
+                                                <button class="input-group-text increment-btn">+</button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary addTocartBtn">Add to Cart<i class="fa fa-shopping-cart"></i> </button>
                                         </td>
                                         </tr>
                                     @endforeach
@@ -110,9 +116,10 @@
                                     <th scope="col">No</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Price</th>
-                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Stock</th>
                                     <th scope="col">Image</th>
                                     <th scope="col">Category</th>
+                                    <th scope="col">Quantity</th>
                                     <th scope="col">Invoice</th>
                                 </tr>
                                 </thead>

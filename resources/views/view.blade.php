@@ -41,7 +41,7 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Price</th>
-                                <th scope="col">Quantity</th>
+                                <th scope="col">Stock</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Category</th>
                                 <th scope="col">Edit</th>
@@ -58,7 +58,7 @@
                                     <td>{{ $book->Quantity }}</td>
                                     <td>
                                         {{-- <img src="{{asset('storage/images/'.$book->image)}}" alt="Error" style="height: 50px" > --}}
-                                        <img src="{{asset('storage/Image/'.$book->Image)}}" alt="Error" style="height: 50px" >
+                                        <img src="{{asset('storage/Image/'.$book->Image)}}" alt="Error" style="height: 90px" >
                                     </td>
                                     <td>
                                         @foreach ($book->category as $category)
@@ -123,7 +123,7 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Price</th>
-                                <th scope="col">Quantity</th>
+                                <th scope="col">Stock</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Category</th>
                                 <th scope="col">Edit</th>

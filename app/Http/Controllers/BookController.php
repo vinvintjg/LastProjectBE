@@ -78,9 +78,9 @@ class BookController extends Controller
 
         $book -> update([
             'Name' => $request->Name,
-            'Quantity' => $request->Quantity,
             'Price' => $request->Price,
-            'Image' => $request->Image,
+            'Quantity' => $request->Quantity,
+
         ]);
 
         return redirect(route('getBooks'));
