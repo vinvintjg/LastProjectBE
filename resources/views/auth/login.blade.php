@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card shadow">
-                <div class="card-header">{{ __('LOGIN') }}</div>
+                <div class="card-header text-center">{{ __('LOGIN') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -69,12 +69,27 @@
                 <div class="card-footer text-center">
                     Make an Account ?
                     <a href="{{ route('register')}}">Register</a>
-                  </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-
 @endsection
+
+
+    <style>
+        @keyframes spinning {
+
+          from { transform: rotate(0deg) }
+          to { transform: rotate(360deg) }
+        }
+        .spin {
+        animation-name: spinning;
+        animation-duration: 15s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-out;
+        }
+    </style>
+
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BookRequest;
 use App\Models\Book;
+use App\Models\Book2;
 use App\Models\Genre;
 use App\Models\User;
 use App\Models\Category;
@@ -22,11 +23,8 @@ class BookController extends Controller
     public function createBook(BookRequest $request){
 
         $extension = $request->file('Image')->getClientOriginalExtension();
-        $fileName = $request->Title.'_'.$request->Author.'.'.$extension;//rename image
+        $fileName = $request->Name.'_'.$request->Price.'.'.$extension;//rename image
         $request->file('Image')->storeAs('public/Image/', $fileName);//save image
-
-        // $path = $request->file('image')->store('public/images');
-        // $path = substr($path, strlen('public/'));
 
         $book = Book::create([
             'Name' => $request->Name,
@@ -34,7 +32,6 @@ class BookController extends Controller
             'Quantity' => $request->Quantity,
             'Image'=> $fileName,
             'user_id' => Auth::user()->id,
-            // 'image' => $path,
         ]);
         $book->category()->attach($request->category);
 
@@ -68,20 +65,36 @@ class BookController extends Controller
         return view('view', ['books' => $books]);
     }
 
+    public function getBooks2(){
+        $books = Book::paginate(5);
+        return view('invoice', ['books' => $books]);
+    }
+
     public function getBookById($id) {
         $book = Book::find($id);
         return view('update', ['book' => $book]);
     }
 
+    public function InvoiceById($id) {
+        $book = Book::find($id);
+        return view('invoice', ['book' => $book]);
+    }
+
     public function updateBook(BookRequest $request, $id) {
         $book = Book::find($id);
+
+        $extension = $request->file('Image')->getClientOriginalExtension();
+        $fileName = $request->Name.'_'.$request->Price.'.'.$extension;//rename image
+        $request->file('Image')->storeAs('public/Image/', $fileName);//save image
 
         $book -> update([
             'Name' => $request->Name,
             'Price' => $request->Price,
             'Quantity' => $request->Quantity,
-
+            'Image'=> $fileName,
+            'category' => $request->category,
         ]);
+        $book->category()->attach($request->category);
 
         return redirect(route('getBooks'));
     }
@@ -94,6 +107,11 @@ class BookController extends Controller
     public function ViewMyBooks(){
         $books = Book::paginate(5);
         return view('viewmy', ['books' => $books]);
+    }
+
+    public function getInvoice(){
+        $books = Book::paginate(5);
+        return view('invoice', ['books' => $books]);
     }
 
 }

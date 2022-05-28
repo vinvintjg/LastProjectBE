@@ -30,19 +30,14 @@
                 <a class="nav-link active" aria-current="page" href="{{ route('getCreatePage')}}">INPUT</a>
               </li>
               <li class="nav-item me-2">
-                <a class="nav-link active" aria-current="page" href="{{ route('getBooks')}}">VIEW DATA</a>
+                <a class="nav-link active" aria-current="page" href="{{ route('getBooks')}}">VIEW</a>
               </li>
               @else
               <li class="nav-item me-2">
-                <a class="nav-link active" aria-current="page" href="{{ route('ViewMyBooks')}}">VIEW DATA</a>
+                <a class="nav-link active" aria-current="page" href="{{ route('ViewMyBooks')}}">VIEW</a>
               </li>
               @endif
             </ul>
-
-            {{-- <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success me-2" type="submit">Search</button>
-            </form> --}}
             <form action="{{route('logout')}}" method="POST">
                 @csrf
                 <button type="submit" class="btn btn-outline-danger me-2">logout</button>
@@ -56,7 +51,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>
-
 
 </html>
 

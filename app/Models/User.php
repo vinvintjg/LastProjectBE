@@ -22,7 +22,10 @@ class User extends Authenticatable
         'email',
         'password',
         'notlp',
-        'role'
+        'role',
+        'addres',
+        'poscode',
+        'qty',
     ];
 
     /**

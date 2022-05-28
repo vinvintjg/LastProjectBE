@@ -24,11 +24,19 @@
                 <div class="card-header">{{ __('LIST ITEM') }}</div>
                     <div class="card-body">
                         <div class="text-center">
-                            <form action="{{route('search1')}}" method="GET">
+                            <form action="{{route('search1')}}" method="GET" class="input-group row">
                                 <div class="input-group">
                                     <form class="form-inline" action="">
-                                        <label for="category_filter" class="">Filter</label>
-                                        <select class="form-control me-5" id="category_filter" name="category"><option value="">Select Category</option></select>
+                                        <label for="category_filter" class="me-1">Filter By Category &nbsp;</label>
+                                        <select class="form-control me-5" id="category_filter" name="category">
+                                            <option selected>Choose...</option>
+                                            <option value="">Books</option>
+                                            <option value="">Clothing</option>
+                                            <option value="">Electronics</option>
+                                            <option value="">Food</option>
+                                            <option value="">Furniture</option>
+                                            <option value="">Others</option>
+                                        </select>
                                         <input type="text" class="form-control" name="cari" placeholder="Search" value=""/>
                                         <button type="submit" class="btn btn-primary">Search</button>
                                 </div>
@@ -46,18 +54,17 @@
                                 <th scope="col">Category</th>
                                 <th scope="col">Edit</th>
                                 <th scope="col">Delete</th>
-                                <th scope="col">Invoice</th>
                             </tr>
                             </thead>
                             <tbody>
                                 @foreach ($books as $book)
                                     <tr>
+
                                     <th scope="row">{{ $book->id }}</th>
                                     <td>{{ $book->Name }}</td>
                                     <td>Rp. {{ $book->Price }}</td>
                                     <td>{{ $book->Quantity }}</td>
                                     <td>
-                                        {{-- <img src="{{asset('storage/images/'.$book->image)}}" alt="Error" style="height: 50px" > --}}
                                         <img src="{{asset('storage/Image/'.$book->Image)}}" alt="Error" style="height: 90px" >
                                     </td>
                                     <td>
@@ -79,12 +86,6 @@
                                         <button type="submit" class="btn btn-danger col-md">Delete</button>
                                         </form>
                                     </td>
-                                    <td>
-                                        <a href="">
-                                        <button type="submit" class="btn btn-primary">Detail</button>
-                                        </a>
-                                    </td>
-
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -99,7 +100,7 @@
     @else
     <div class="container">
         <div class="row justify-content-center text-center ">
-            <div class="col-md-9">
+            <div class="col-md-8">
             <div class="card shadow">
                 <div class="card-header">{{ __('BOOK LIST') }}</div>
                     <div class="card-body">
@@ -128,7 +129,6 @@
                                 <th scope="col">Category</th>
                                 <th scope="col">Edit</th>
                                 <th scope="col">Delete</th>
-                                <th scope="col">Invoice</th>
                             </tr>
                             </thead>
                         </table>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\BookController2;
 use App\Http\Middleware\IsAdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -49,4 +50,11 @@ Route::middleware('auth')->group(function(){
     Route::get('/get-my-books', [BookController::class, 'ViewMyBooks'])->name('ViewMyBooks');
 
     Route::get('/ss', [BookController::class, 'searchBook2'])->name('search2');
+
+    Route::get('/invoice/input/{id}', [BookController::class, 'InvoiceById'])->name('InvoiceById');
+
+    Route::get('/updateuser/{id}', [BookController2::class, 'getDataLeaderById'])->name('getDataLeaderById');
+
+    Route::patch('/updateuser/{id}', [BookController2::class, 'updateuser'])->name('updateuser');
+
 });

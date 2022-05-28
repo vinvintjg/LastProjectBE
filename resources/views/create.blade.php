@@ -21,7 +21,6 @@
                     <div class="card-header text-center">{{ __('INPUT NEW ITEM') }} </div>
                         <div class="card-body">
                             <form action="{{ route('createBook') }}" method="POST" enctype="multipart/form-data">
-
                                 @csrf
                                 <div class="mb-3">
                                     <label for="Name" class="form-label">Name of Item</label>
@@ -58,8 +57,8 @@
                                         {{ $message }}
                                     </div>
                                     @enderror
-                                  </div>
-                                  <div class="mb-3">
+                                </div>
+                                <div class="mb-3">
                                     <label for="Category" class="form-label">Category of Item</label>
                                     <div class="" style="">
                                         <div class="form-check form-check-inline">
@@ -90,16 +89,16 @@
                                         <div class="text-danger">
                                             {{ $message }}
                                         </div>
-                                    @enderror
+                                        @enderror
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-success">Insert</button>
                             </form>
+
                         </div>
                 </div>
             </div>
         </div>
     </div>
-
 @endsection
 

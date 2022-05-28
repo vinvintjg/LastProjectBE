@@ -54,6 +54,9 @@ class RegisterController extends Controller
             'email' => ['required', 'regex:/(.+)@gmail.com/i', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'max:12', 'confirmed'],
             'notlp' => ['required','unique:users', 'regex:/^(08)/'],
+            'addres' => ['string','min:10', 'max:100'],
+            'poscode' => ['integer','min:5', 'max:5'],
+            'qty' => ['integer']
         ]);
     }
 
@@ -70,7 +73,10 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'notlp' => $data['notlp'],
-            'role' => 'user'
+            'role' => 'user',
+            'addres' => 'Change the addres',
+            'poscode' => '12345',
+            'qty' => '1',
         ]);
     }
 }

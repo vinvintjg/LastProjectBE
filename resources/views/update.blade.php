@@ -43,16 +43,21 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="Image" class="form-label">Iamge of Item</label>
-                            <input name="Image" type="file" class="form-control" id="formGroupExampleInput" value="{{$book->Image}}" placeholder="Input Image of Item">
+                            <label for="Image" class="form-label">Image of Item</label>
+                            <input name="Image" type="file" class="form-control" id="formGroupExampleInput" value="{{$book->Image}}" placeholder="Input Image Of Book">
                             @error('Image')
                             <div class="text-danger">
                                 {{ $message }}
                             </div>
                             @enderror
                         </div>
+                        <div class="card-body text-center">
                         <button type="submit" class="btn btn-success">Update</button>
+                        </div>
                     </form>
+                    <div class="text-center">
+                        <a href="{{route('getBooks')}}"><button type="submit" class="btn btn-danger">Cancel</button></a>
+                    </div>
                 </div>
             </div>
         </div>

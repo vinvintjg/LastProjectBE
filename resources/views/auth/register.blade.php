@@ -84,6 +84,10 @@
                         </div>
                     </form>
                 </div>
+                <div class="card-footer text-center">
+                    Have an Account ?
+                    <a href="{{ route('login')}}">login</a>
+                </div>
             </div>
         </div>
     </div>

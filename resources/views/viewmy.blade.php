@@ -13,6 +13,7 @@
 <body> --}}
     @extends('layouts.layout')
     @section('content')
+
         <div style="padding-top: 20px"></div>
 
         @if ($books->count() > 0)
@@ -24,11 +25,19 @@
                     <div class="card-header">{{ __('LIST ITEM') }}</div>
                         <div class="card-body">
                             <div class="text-center">
-                                <form action="{{route('search2')}}" method="GET">
+                                <form action="{{route('search2')}}" method="GET" class="input-group row">
                                     <div class="input-group">
                                         <form class="form-inline" action="">
-                                            <label for="category_filter" class="">Filter</label>
-                                            <select class="form-control me-5" id="category_filter" name="category"><option value="">Select Category</option></select>
+                                            <label for="category_filter" class="me-1">Filter By Category &nbsp;</label>
+                                            <select class="form-control me-5" id="category_filter" name="category">
+                                                <option selected>Choose...</option>
+                                                <option value="">Books</option>
+                                                <option value="">Clothing</option>
+                                                <option value="">Electronics</option>
+                                                <option value="">Food</option>
+                                                <option value="">Furniture</option>
+                                                <option value="">Others</option>
+                                            </select>
                                             <input type="text" class="form-control" name="cari" placeholder="Search" value=""/>
                                             <button type="submit" class="btn btn-primary">Search</button>
                                     </div>
@@ -44,11 +53,12 @@
                                     <th scope="col">Stock</th>
                                     <th scope="col">Image</th>
                                     <th scope="col">Category</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Cart</th>
+                                    <th scope="col">Buy</th>
+                                    <th scope="col">Invoice</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+
                                     @foreach ($books as $book)
                                         <tr>
                                         <th scope="row">{{ $book->id }}</th>
@@ -56,8 +66,7 @@
                                         <td>Rp. {{ $book->Price }}</td>
                                         <td>{{ $book->Quantity }}</td>
                                         <td>
-                                            {{-- <img src="{{asset('storage/images/'.$book->image)}}" alt="Error" style="height: 50px" > --}}
-                                            <img src="{{asset('storage/Image/'.$book->Image)}}" alt="Error" style="height: 50px" >
+                                            <img src="{{asset('storage/Image/'.$book->Image)}}" alt="Error" style="width: 110px;" >
                                         </td>
                                         <td>
                                             @foreach ($book->category as $category)
@@ -69,16 +78,13 @@
                                             @endforeach
                                         </td>
                                         <td>
-                                            <div class="input-group float-end me-4" style="width:120px;">
-                                                <button class=" input-group-text decrement-btn ">-</button>
-                                                <input type="text" name="Quantity1" class="form-control qty-input text-center" value="1" >
-                                                <button class="input-group-text increment-btn">+</button>
-                                            </div>
+                                            <a href="{{route('getDataLeaderById', ['id'=>Auth::user()->id])}}"><button type="submit" class="btn btn-primary col-md-9">Buy</button></a>
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-primary addTocartBtn">Add to Cart<i class="fa fa-shopping-cart"></i> </button>
+                                            <a href="{{route('InvoiceById', ['id'=>$book->id])}}"><button type="submit" class="btn btn-success col-md-8">View</button></a>
                                         </td>
                                         </tr>
+
                                     @endforeach
                                 </tbody>
                             </table>
@@ -92,7 +98,7 @@
         @else
         <div class="container">
             <div class="row justify-content-center text-center ">
-                <div class="col-md-9">
+                <div class="col-md-8">
                 <div class="card shadow">
                     <div class="card-header">{{ __('LIST ITEM') }}</div>
                         <div class="card-body">
@@ -119,7 +125,7 @@
                                     <th scope="col">Stock</th>
                                     <th scope="col">Image</th>
                                     <th scope="col">Category</th>
-                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Buy</th>
                                     <th scope="col">Invoice</th>
                                 </tr>
                                 </thead>
@@ -134,3 +140,4 @@
         @endif
 
     @endsection
+

@@ -18,7 +18,11 @@ class AdminSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'notlp' => '0876543210',
             'password' => bcrypt('vincent'),
-            'role' => 'admin'
+            'role' => 'admin',
+            'addres' => 'Change the addres',
+            'poscode' => '11111',
+            'qty' => '0',
+
         ]);
 
         // $user = factory(User::class, 3)->create();

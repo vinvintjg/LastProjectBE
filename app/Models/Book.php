@@ -10,7 +10,8 @@ class Book extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Name', 'Price', 'Quantity', 'user_id', 'Image', 'Category'
+        'Name', 'Price', 'Quantity', 'user_id', 'Image', 'Category',
+        // 'Invoice', 'Addres', 'Pos', 'Quantity2',
     ];
 
 
@@ -21,6 +22,7 @@ class Book extends Model
     public function category(){
         return $this->belongsToMany(Category::class);
     }
+
 
 }
 
